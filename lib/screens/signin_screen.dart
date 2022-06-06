@@ -44,7 +44,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           prefixIcon: Icon(Icons.person_outline, size: 20),
                           hintText: "Masukan Username",
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                           )))),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     labelText: "Password",
                     hintText: "Masukan Password",
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
@@ -78,7 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {
@@ -110,7 +110,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   icon: Icon(Icons.facebook_sharp),
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {},
