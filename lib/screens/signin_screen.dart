@@ -25,7 +25,7 @@ class _SignInScreenState extends State<SignInScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset('images/gambar1.png', width: 280.0),
+              Image.asset('images/gambar1.png', width: 200.0),
               Text('Welcome', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               SizedBox(height: 10),
               Text(
