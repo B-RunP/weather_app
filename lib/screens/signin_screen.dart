@@ -70,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 20,
               ),
               SizedBox(
-                width: 250,
+                width: 300,
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -98,7 +98,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               SizedBox(
-                width: 250,
+                height: 20,
+              ),
+              SizedBox(
+                width: 300,
                 height: 50,
                 child: ElevatedButton.icon(
                   icon: Icon(Icons.facebook_sharp),
