@@ -97,6 +97,20 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Text('Login'),
                 ),
               ),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton.icon(
+                  icon: Icon(Icons.facebook_sharp),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  onPressed: () {},
+                  label: Text('Sign in with Google'),
+                ),
+              ),
               SizedBox(height: 25),
               Text(
                 'Or connect using',
@@ -119,7 +133,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       label: Text('Facebook'),
                     ),
                     ElevatedButton.icon(
-                      icon: Image.asset("images/google.png", height: 22),
+                      icon: Icon(Icons.facebook_sharp),
+                      //icon: Image.asset("images/google.png", height: 22),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.red,
                         // padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
