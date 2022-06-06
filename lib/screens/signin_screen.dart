@@ -25,6 +25,9 @@ class _SignInScreenState extends State<SignInScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Image.asset('images/gambar1.png', width: 200.0),
               Text('Welcome', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               SizedBox(height: 10),
@@ -114,40 +117,40 @@ class _SignInScreenState extends State<SignInScreen> {
                   label: Text('Sign in with Google'),
                 ),
               ),
-              SizedBox(height: 25),
-              Text(
-                'Or connect using',
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.6),
-                ),
-              ),
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                    ElevatedButton.icon(
-                      icon: Icon(Icons.facebook_sharp),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
-                        // padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                      ),
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fitur masih dalam pengembangan')));
-                      },
-                      label: Text('Facebook'),
-                    ),
-                    ElevatedButton.icon(
-                      icon: Icon(Icons.facebook_sharp),
-                      //icon: Image.asset("images/google.png", height: 22),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        // padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                      ),
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fitur masih dalam pengembangan')));
-                      },
-                      label: Text('Google'),
-                    ),
-                  ])),
+              // SizedBox(height: 25),
+              // Text(
+              //   'Or connect using',
+              //   style: TextStyle(
+              //     color: Colors.black.withOpacity(0.6),
+              //   ),
+              // ),
+              // Padding(
+              //     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              //     child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              //       ElevatedButton.icon(
+              //         icon: Icon(Icons.facebook_sharp),
+              //         style: ElevatedButton.styleFrom(
+              //           primary: Colors.blue,
+              //           // padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              //         ),
+              //         onPressed: () {
+              //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fitur masih dalam pengembangan')));
+              //         },
+              //         label: Text('Facebook'),
+              //       ),
+              //       ElevatedButton.icon(
+              //         icon: Icon(Icons.facebook_sharp),
+              //         //icon: Image.asset("images/google.png", height: 22),
+              //         style: ElevatedButton.styleFrom(
+              //           primary: Colors.red,
+              //           // padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              //         ),
+              //         onPressed: () {
+              //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fitur masih dalam pengembangan')));
+              //         },
+              //         label: Text('Google'),
+              //       ),
+              //     ])),
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                   child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
