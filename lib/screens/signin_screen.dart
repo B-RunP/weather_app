@@ -53,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   obscureText: hidePass,
                   decoration: InputDecoration(
                     labelText: "Password",
-                    prefixIcon: Icon(Icons.password_outlined, size: 20),
+                    prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
                     hintText: "Masukan Password",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
