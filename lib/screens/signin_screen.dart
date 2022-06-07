@@ -107,13 +107,8 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 width: 300,
                 height: 50,
-                child: ElevatedButton.icon(
+                child: OutlineButton.icon(
                   icon: Icon(Icons.facebook_sharp),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
                   onPressed: () {},
                   label: Text('Sign in with Google'),
                 ),
