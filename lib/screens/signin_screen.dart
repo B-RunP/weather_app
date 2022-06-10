@@ -56,12 +56,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 20,
               ),
               SizedBox(
-                width: 250,
+                width: 300,
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                   ),
                   onPressed: () {
@@ -80,6 +80,17 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Text('Login'),
                 ),
               ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text('Dont have an account?'),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+                  },
+                  child: Text(
+                    "Sign up",
+                  ),
+                ),
+              ]),
             ],
           ),
         ),
