@@ -19,7 +19,7 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.2, 20, 0),
           child: Column(
             children: <Widget>[
-              Image.asset('images/gambar1.png', width: 280.0),
+              Image.asset('images/gambar1.png', width: 240.0),
             ],
           ),
         ),
