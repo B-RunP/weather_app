@@ -10,6 +10,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  TextEditingController userNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +21,15 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Column(
             children: <Widget>[
               Image.asset('images/gambar1.png', width: 240.0),
+              TextFormField(
+                  controller: userNameController,
+                  decoration: InputDecoration(
+                      labelText: "Username",
+                      prefixIcon: Icon(Icons.person_outline, size: 20),
+                      hintText: "Masukan Username",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ))),
             ],
           ),
         ),
