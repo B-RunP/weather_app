@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 20,
               ),
               SizedBox(
-                width: 300,
+                width: 350,
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -78,6 +78,15 @@ class _SignInScreenState extends State<SignInScreen> {
                     }
                   },
                   child: Text('Login'),
+                ),
+              ),
+              SizedBox(
+                width: 300,
+                height: 50,
+                child: OutlineButton.icon(
+                  icon: Icon(Icons.facebook_sharp),
+                  onPressed: () {},
+                  label: Text('Sign in with Google'),
                 ),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
