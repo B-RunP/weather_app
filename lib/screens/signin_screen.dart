@@ -64,19 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {
-                    if (userNameController.text == 'user_uts' && passwordController.text == "pass_uts") {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Berhasil Login'),
-                      ));
-
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Username atau password salah'),
-                      ));
-                    }
-                  },
+                  onPressed: () {},
                   child: Text('Login'),
                 ),
               ),
@@ -87,7 +75,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 width: 350,
                 height: 50,
                 child: OutlineButton.icon(
-                  icon: Icon(Icons.facebook_sharp),
+                  icon: Image.asset("images/gambar.png"),
+                  // icon: Icon(Icons.facebook_sharp),
                   onPressed: () {},
                   label: Text('Sign in with Google'),
                 ),
