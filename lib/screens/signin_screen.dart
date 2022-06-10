@@ -11,6 +11,10 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   TextEditingController userNameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  bool hidePass = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +25,9 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Column(
             children: <Widget>[
               Image.asset('images/gambar1.png', width: 240.0),
+              SizedBox(
+                height: 30,
+              ),
               TextFormField(
                   controller: userNameController,
                   decoration: InputDecoration(
@@ -28,8 +35,50 @@ class _SignInScreenState extends State<SignInScreen> {
                       prefixIcon: Icon(Icons.person_outline, size: 20),
                       hintText: "Masukan Username",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(15),
                       ))),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                controller: passwordController,
+                obscureText: hidePass,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  hintText: "Masukan Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: 250,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  onPressed: () {
+                    if (userNameController.text == 'user_uts' && passwordController.text == "pass_uts") {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Berhasil Login'),
+                      ));
+
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Username atau password salah'),
+                      ));
+                    }
+                  },
+                  child: Text('Login'),
+                ),
+              ),
             ],
           ),
         ),
