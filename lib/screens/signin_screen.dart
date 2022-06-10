@@ -35,7 +35,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       prefixIcon: Icon(Icons.person_outline, size: 20),
                       hintText: "Masukan Username",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                       ))),
               SizedBox(
                 height: 20,
@@ -48,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   labelText: "Password",
                   hintText: "Masukan Password",
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {
