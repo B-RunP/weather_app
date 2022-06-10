@@ -44,6 +44,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 controller: passwordController,
                 obscureText: hidePass,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
                   labelText: "Password",
                   hintText: "Masukan Password",
                   border: OutlineInputBorder(
