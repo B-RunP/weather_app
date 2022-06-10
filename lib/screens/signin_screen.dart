@@ -80,7 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Text('Login'),
                 ),
               ),
-              SizeBox(
+              SizedBox(
                 height: 20,
               ),
               SizedBox(
