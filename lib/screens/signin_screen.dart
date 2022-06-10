@@ -80,8 +80,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Text('Login'),
                 ),
               ),
+              SizeBox(
+                height: 20,
+              ),
               SizedBox(
-                width: 300,
+                width: 350,
                 height: 50,
                 child: OutlineButton.icon(
                   icon: Icon(Icons.facebook_sharp),
