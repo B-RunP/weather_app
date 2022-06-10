@@ -75,7 +75,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 width: 350,
                 height: 50,
                 child: OutlineButton.icon(
-                  icon: Image.asset("images/gambar.png"),
+                  icon: Image.asset("images/gambar2.png"),
                   // icon: Icon(Icons.facebook_sharp),
                   onPressed: () {},
                   label: Text('Sign in with Google'),
