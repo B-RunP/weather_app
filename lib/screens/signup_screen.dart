@@ -44,32 +44,6 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: TextFormField(
-                controller: userEmailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.email_outlined, size: 20),
-                  // labelText: "Username",
-                  hintText: "Email",
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
-                controller: userPhoneController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.phone_android_outlined, size: 20),
-                  // labelText: "Username",
-                  hintText: "Phone",
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
                 controller: userPasswordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
