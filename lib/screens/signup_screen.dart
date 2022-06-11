@@ -9,11 +9,9 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController userNameController = TextEditingController();
-  TextEditingController userEmailController = TextEditingController();
-  TextEditingController userPhoneController = TextEditingController();
-  TextEditingController userPasswordController = TextEditingController();
-  TextEditingController userConfirmPasswordController = TextEditingController();
+  TextEditingController _userNameController = TextEditingController();
+  TextEditingController _userEmailController = TextEditingController();
+  TextEditingController _userPasswordController = TextEditingController();
 
   bool hidePass = true;
 
@@ -35,7 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: TextFormField(
-                controller: userNameController,
+                controller: _userNameController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -48,7 +46,7 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: TextFormField(
-                controller: userEmailController,
+                controller: _userEmailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -61,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: TextFormField(
-                controller: userPasswordController,
+                controller: _userPasswordController,
                 obscureText: hidePass,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -83,7 +81,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               onPressed: () {
-                FirebaseAuth.instance.createUserWithEmailAndPassword(email: userEmailController.text, password: userPasswordController.text).then((value) {
+                FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
