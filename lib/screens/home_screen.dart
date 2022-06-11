@@ -26,8 +26,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              var box = Hive.box('userBox').clear();
-
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => SignInScreen()),
               );
