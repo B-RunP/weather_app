@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
@@ -45,6 +46,19 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: TextFormField(
+                controller: userEmailController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  prefixIcon: Icon(Icons.mail_outline_rounded, size: 20),
+                  // labelText: "Username",
+                  hintText: "Masukan Email",
+                )),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: TextFormField(
                 controller: userPasswordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -52,20 +66,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
                   // labelText: "Username",
-                  hintText: "Password",
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
-                controller: userConfirmPasswordController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.lock, size: 20),
-                  // labelText: "Username",
-                  hintText: "Confirm Password",
+                  hintText: "Masukan Password",
                 )),
           ),
           SizedBox(height: 20),
@@ -79,9 +80,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => HomeScreen()),
-                );
+                FirebaseAuth.instance.createUserWithEmailAndPassword(email: userEmailController.text, password: userPasswordController.text).then((value) {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
               },
               child: Text('Create'),
             ),
