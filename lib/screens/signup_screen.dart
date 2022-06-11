@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/screens/signin_screen.dart';
+import 'package:myapp/screens/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -79,7 +80,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => SignInScreen()),
+                  MaterialPageRoute(builder: (_) => HomeScreen()),
                 );
               },
               child: Text('Create'),
