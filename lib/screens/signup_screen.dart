@@ -78,7 +78,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fitur masih dalam pengembangan')));
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => SignInScreen()),
+                );
               },
               child: Text('Create'),
             ),
