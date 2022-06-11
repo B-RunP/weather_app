@@ -15,6 +15,8 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController userPasswordController = TextEditingController();
   TextEditingController userConfirmPasswordController = TextEditingController();
 
+  bool hidePass = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
