@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase/firebase.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
