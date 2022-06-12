@@ -83,6 +83,8 @@ class _SignupScreenState extends State<SignupScreen> {
               onPressed: () {
                 FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
                 });
               },
               child: Text('Create'),
