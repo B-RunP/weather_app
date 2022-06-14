@@ -36,6 +36,7 @@ class HomeScreen extends StatelessWidget {
             child: Text('Logout'),
           ),
         ),
+        SizedBox(height: 20),
         SizedBox(
           width: 150,
           height: 30,
