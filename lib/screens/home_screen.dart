@@ -14,8 +14,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
-          child: Text('Home Breng',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          child: Text('Home Breng', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         ),
         SizedBox(height: 20),
         SizedBox(
@@ -29,8 +28,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SignInScreen()));
+              FirebaseAuth.instance.signOut().then((value) {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+              });
             },
             child: Text('Logout'),
           ),

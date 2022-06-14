@@ -22,8 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
         body: Container(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(
-              20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+          padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.2, 20, 0),
           child: Column(
             children: <Widget>[
               Image.asset('images/gambar1.png', width: 240.0),
@@ -67,16 +66,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
                   onPressed: () async {
-                    try {
-                      FirebaseAuth.instance.createUserWithEmailAndPassword(
-                          email: _userEmailController.text,
-                          password: _userPasswordController.text);
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => HomeScreen()));
-                    } on FirebaseAuthException catch (error) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(error.message.toString())));
-                    }
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                    });
                   },
                   child: Text('Login'),
                 ),
@@ -98,10 +90,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 Text('Dont have an account?'),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SignupScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
                   },
                   child: Text(
                     "Sign up",
