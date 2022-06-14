@@ -12,7 +12,7 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
-    String cityName = "Katowice"; //city name
+    String cityName = "Sukoharjo"; //city name
     int currTemp = 30; // current temperature
     int maxTemp = 30; // today max temperature
     int minTemp = 2; // today min temperature
@@ -199,7 +199,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     left: size.width * 0.03,
                                   ),
                                   child: Text(
-                                    'Forecast for today',
+                                    'Cuaca hari ini',
                                     style: GoogleFonts.questrial(
                                       color: isDarkMode ? Colors.white : Colors.black,
                                       fontSize: size.height * 0.025,
@@ -335,7 +335,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     left: size.width * 0.03,
                                   ),
                                   child: Text(
-                                    '7-day forecast',
+                                    'Ramalan 7 hari',
                                     style: GoogleFonts.questrial(
                                       color: isDarkMode ? Colors.white : Colors.black,
                                       fontSize: size.height * 0.025,
