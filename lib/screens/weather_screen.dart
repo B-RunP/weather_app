@@ -20,6 +20,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Weather Screen'),
+      ),
       body: Center(
         child: Container(
           height: size.height,
