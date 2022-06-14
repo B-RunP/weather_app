@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase/firebase.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
@@ -25,7 +24,8 @@ class _SignupScreenState extends State<SignupScreen> {
         body: SingleChildScrollView(
             child: Column(children: [
           SizedBox(height: 20),
-          Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text("Let's Get Started",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           Text(
             'Creat an account to Q alure to get all Leatures',
             style: TextStyle(color: Colors.black.withOpacity(0.5)),
@@ -81,12 +81,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              onPressed: () {
-                FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
-                }).onError((error, stackTrace) {
-                  print("Error ${error.toString()}");
-                });
+              onPressed: () async {
+                try {
+                  FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: _userEmailController.text,
+                      password: _userPasswordController.text);
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => HomeScreen()));
+                } on FirebaseAuthException catch (error) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(error.message.toString())));
+                }
               },
               child: Text('Create'),
             ),
@@ -97,7 +102,8 @@ class _SignupScreenState extends State<SignupScreen> {
               Text('Already have an account?'),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignInScreen()));
                 },
                 child: Text(
                   "Login here",
