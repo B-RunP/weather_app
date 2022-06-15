@@ -32,7 +32,7 @@ class _splashScreenState extends State<splashScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Center(
-        child: Image.asset("image/logo.png", height: 300, width: 200),
+        child: Image.asset("images/gambar1.png", height: 300, width: 200),
       )),
     );
   }
