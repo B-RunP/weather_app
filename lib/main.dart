@@ -1,21 +1,27 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
-import 'home_screen.dart';
+import 'package:myapp/screens/splash_screen.dart';
 
 void main() async {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      // Application name
+      title: 'Flutter Stateful Clicker Counter',
       theme: ThemeData(
+        // Application theme data, you can set the colors for the application as
+        // you want
         primarySwatch: Colors.blue,
       ),
-      home: splashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
