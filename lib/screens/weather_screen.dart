@@ -11,7 +11,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            body: Column(
+            body: Center(
+                child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
@@ -22,6 +23,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
             )),
         ElevatedButton(onPressed: () {} /*_search*/, child: Text('search'))
       ],
-    )));
+    ))));
   }
 }
