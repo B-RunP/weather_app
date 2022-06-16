@@ -20,7 +20,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               width: 150,
               child: TextField(controller: _cityTextController, decoration: InputDecoration(labelText: 'City'), textAlign: TextAlign.center),
             )),
-        ElevatedButton(onPressed: _search, child: Text('search'))
+        ElevatedButton(onPressed: () {} /*_search*/, child: Text('search'))
       ],
     )));
   }
