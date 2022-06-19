@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/data/data_service.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -7,6 +8,8 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   final _cityTextController = TextEditingController();
+  final _dataService = DataService();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,8 +24,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
               width: 150,
               child: TextField(controller: _cityTextController, decoration: InputDecoration(labelText: 'City'), textAlign: TextAlign.center),
             )),
-        ElevatedButton(onPressed: () {} /*_search*/, child: Text('search'))
+        ElevatedButton(onPressed: _search, child: Text('search'))
       ],
     ))));
+  }
+
+  void _search() {
+    _dataService.getWeather(_cityTextController.text);
   }
 }
