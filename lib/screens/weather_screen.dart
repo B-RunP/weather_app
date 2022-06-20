@@ -29,7 +29,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     ))));
   }
 
-  void _search() {
-    _dataService.getWeather(_cityTextController.text);
+  void _search() async {
+    final response = await _dataService.getWeather(_cityTextController.text);
   }
 }
