@@ -6,7 +6,6 @@ import 'package:myapp/screens/signup_screen.dart';
 import 'package:hive/hive.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
   _SignInScreenState createState() => _SignInScreenState();
 }
 

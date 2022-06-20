@@ -4,7 +4,6 @@ import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
   _SignupScreenState createState() => _SignupScreenState();
 }
 
