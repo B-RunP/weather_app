@@ -61,6 +61,6 @@ class WeatherResponse {
     final weatherInfoJson = json['weather'][0];
     final weatherInfo = WeatherInfo.fromJson(weatherInfoJson);
 
-    return WeatherResponse(cityName: cityName, tempInfo: tempInfo);
+    return WeatherResponse(cityName: cityName, tempInfo: tempInfo, weatherInfo: weatherInfo);
   }
 }
