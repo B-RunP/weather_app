@@ -68,7 +68,7 @@ class CategoryTile extends StatelessWidget {
             height: 60,
             fit: BoxFit.cover,
           ),
-          Container(alignment: Alignment.center, width: 120, height: 60, decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)), color: Colors.black26, child: Text(categoryName, style: TextStyle(color: Colors.white)))
+          Container(alignment: Alignment.center, width: 120, height: 60, decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.black26), child: Text(categoryName, style: TextStyle(color: Colors.white)))
         ],
       ),
     );
