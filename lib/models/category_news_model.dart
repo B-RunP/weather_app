@@ -1,4 +1,4 @@
 class CategoryNewsModel {
-  String categoriName;
+  String categoryName;
   String imageUrl;
 }

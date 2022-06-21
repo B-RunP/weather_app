@@ -7,7 +7,6 @@ class NewsScreen extends StatefulWidget {
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-  
   List<CategoryNewsModel> categories = new List<CategoryNewsModel>();
 
   @override
@@ -20,26 +19,36 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      backgroundColor: Colors.white,
-      title: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        Text("Flutter", style: TextStyle(color: Colors.black)),
-        Text("News", style: TextStyle(color: Colors.blue))
-      ]),
-      centerTitle: true,
-      elevation: 0.0,
-    ),
-    body: Container(
-      child:
-    ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Text("Flutter", style: TextStyle(color: Colors.black)),
+          Text("News", style: TextStyle(color: Colors.blue))
+        ]),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Container(
+          child: Column(children: <Widget>[
+        Container(
+          child: ListView.builder(
+              itemCount: categories.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return CategoryTile(
+                  imageUrl: categories[index].imageUrl,
+                  categoryName: categories[index].categoryName,
+                );
+              }),
+        )
+      ])),
     );
   }
 }
 
 class CategoryTile extends StatelessWidget {
-
-  final imageUrl, categorieName;
-  CategoryTile({this.imageUrl, this.categorieName});
+  final imageUrl, categoryName;
+  CategoryTile({this.imageUrl, this.categoryName});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +58,6 @@ class CategoryTile extends StatelessWidget {
           Image.network(imageUrl, width: 120, height: 60),
         ],
       ),
-      
     );
   }
 }
