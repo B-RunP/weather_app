@@ -9,6 +9,7 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+      backgroundColor: Colors.white,
       title: Row(children: <Widget>[
         Text("Flutter"),
         Text("News", style: TextStyle(color: Colors.blue))
