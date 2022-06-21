@@ -31,6 +31,7 @@ class _NewsScreenState extends State<NewsScreen> {
       body: Container(
           child: Column(children: <Widget>[
         Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
           height: 70,
           child: ListView.builder(
               itemCount: categories.length,
@@ -55,9 +56,19 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right: 16),
       child: Stack(
         children: <Widget>[
-          Image.network(imageUrl, width: 120, height: 60),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+          ),
+          Image.network(
+            imageUrl,
+            width: 120,
+            height: 60,
+            fit: BoxFit.cover,
+          ),
+          Container(alignment: Alignment.center, width: 120, height: 60, decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)), color: Colors.black26, child: Text(categoryName, style: TextStyle(color: Colors.white)))
         ],
       ),
     );
