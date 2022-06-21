@@ -53,6 +53,7 @@ class HomeScreen extends StatelessWidget {
             child: Text('Cuaca'),
           ),
         ),
+        SizedBox(height: 20),
         SizedBox(
           width: 150,
           height: 30,

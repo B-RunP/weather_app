@@ -22,7 +22,7 @@ class _NewsScreenState extends State<NewsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Text("Flutter", style: TextStyle(color: Colors.black)),
+          Text("World", style: TextStyle(color: Colors.black)),
           Text("News", style: TextStyle(color: Colors.blue))
         ]),
         centerTitle: true,
