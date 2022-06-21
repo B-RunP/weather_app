@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/data/data_service.dart';
-import 'package:myapp/models/models.dart';
+import 'package:myapp/data/weather_data.dart';
+import 'package:myapp/models/weather_model.dart';
 
 class WeatherScreen extends StatefulWidget {
   _WeatherScreenState createState() => _WeatherScreenState();
