@@ -10,13 +10,6 @@ List<CategoryNewsModel> getCategories() {
 
   category.add(categoryNewsModel);
 
-  //2
-  categoryNewsModel = new CategoryNewsModel();
-  categoryNewsModel.categoryName = "Entertaiment";
-  categoryNewsModel.imageUrl = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80";
-
-  category.add(categoryNewsModel);
-
   //3
   categoryNewsModel = new CategoryNewsModel();
   categoryNewsModel.categoryName = "Entertaiment";
