@@ -7,9 +7,9 @@ class News {
   List<ArticleModel> news = [];
 
   Future<void> getNews() async {
-    final url = "https://newsapi.org/v2/everything?q=tesla&from=2022-05-21&sortBy=publishedAt&apiKey=255bc79d3fea4922be0314eb6fca504d";
+    var url = Uri.parse('https://newsapi.org/v2/everything?q=tesla&from=2022-05-22&sortBy=publishedAt&apiKey=255bc79d3fea4922be0314eb6fca504d');
 
-    final response = await http.get(Uri.parse(Uri.encodeFull(url)));
+    var response = await http.get(url);
 
     var jsonData = jsonDecode(response.body);
 
