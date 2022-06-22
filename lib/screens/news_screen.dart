@@ -19,7 +19,7 @@ class _NewsScreenState extends State<NewsScreen> {
     // TODO: implement initState
     super.initState();
     categories = getCategories();
-    getNews();
+    // getNews();
   }
 
   getNews() async {
@@ -56,7 +56,7 @@ class _NewsScreenState extends State<NewsScreen> {
                 height: 70,
                 child: ListView.builder(
                     itemCount: categories.length,
-                    shrinkWrap: true,
+                    // shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return CategoryTile(
