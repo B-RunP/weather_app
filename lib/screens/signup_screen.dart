@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
@@ -80,12 +80,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               onPressed: () async {
-                try {
-                  FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text);
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
-                } on FirebaseAuthException catch (error) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.message.toString())));
-                }
+                // try {
+                //   FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text);
+                //   Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+                // } on FirebaseAuthException catch (error) {
+                //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.message.toString())));
+                // }
               },
               child: Text('Create'),
             ),
