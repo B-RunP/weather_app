@@ -19,7 +19,7 @@ class _NewsScreenState extends State<NewsScreen> {
     // TODO: implement initState
     super.initState();
     categories = getCategories();
-    // getNews();
+    getNews();
   }
 
   getNews() async {
