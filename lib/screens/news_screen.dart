@@ -70,6 +70,7 @@ class _NewsScreenState extends State<NewsScreen> {
               Container(
                   child: ListView.builder(
                       itemCount: articles.length,
+                      shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return BlogTile(imageUrl: articles[index].urlToImage, title: articles[index].title, desc: articles[index].description);
                       }))
