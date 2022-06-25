@@ -4,7 +4,6 @@ import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
   _SignupScreenState createState() => _SignupScreenState();
 }
 
@@ -24,8 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
         body: SingleChildScrollView(
             child: Column(children: [
           SizedBox(height: 20),
-          Text("Let's Get Started",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           Text(
             'Creat an account to Q alure to get all Leatures',
             style: TextStyle(color: Colors.black.withOpacity(0.5)),
@@ -83,14 +81,10 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               onPressed: () async {
                 try {
-                  FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: _userEmailController.text,
-                      password: _userPasswordController.text);
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => HomeScreen()));
+                  FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
                 } on FirebaseAuthException catch (error) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(error.message.toString())));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.message.toString())));
                 }
               },
               child: Text('Create'),
@@ -102,8 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
               Text('Already have an account?'),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignInScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
                 },
                 child: Text(
                   "Login here",
