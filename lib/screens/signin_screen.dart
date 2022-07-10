@@ -3,15 +3,15 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/home_screen.dart';
 import 'package:myapp/screens/signup_screen.dart';
-import 'package:hive/hive.dart';
+import 'package:myapp/reusable_widget/reusable_widget.dart';
 
 class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  TextEditingController _userEmailController = TextEditingController();
-  TextEditingController _userPasswordController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
 
   bool hidePass = true;
 
@@ -27,19 +27,14 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Column(
             children: <Widget>[
               logoWidget("images/gambar1.png"),
+              SizedBox(height: 30),
+              reusableTextField("Enter Username", Icons.person_outline, false, _emailTextController),
+              SizedBox(height: 20),
+              reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
             ],
           ),
         ),
       ),
     ));
-  }
-
-  Image logoWidget(String imageName) {
-    return Image.asset(
-      imageName,
-      fit: BoxFit.fitWidth,
-      width: 240,
-      height: 240,
-    );
   }
 }
