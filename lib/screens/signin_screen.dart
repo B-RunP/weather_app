@@ -44,14 +44,14 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account?"),
+        const Text("Don't have account?", style: TextStyle(color: Colors.black)),
         GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
             },
             child: const Text(
               " Sign Up",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ))
       ],
     );
