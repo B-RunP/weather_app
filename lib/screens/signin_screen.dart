@@ -24,82 +24,21 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.2, 20, 0),
           child: Column(
             children: <Widget>[
-              Image.asset('images/gambar1.png', width: 240.0),
-              SizedBox(
-                height: 30,
-              ),
-              TextFormField(
-                  controller: _userEmailController,
-                  decoration: InputDecoration(
-                      labelText: "Username",
-                      prefixIcon: Icon(Icons.person_outline, size: 20),
-                      hintText: "Masukan Username",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ))),
-              SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: _userPasswordController,
-                obscureText: hidePass,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
-                  labelText: "Password",
-                  hintText: "Masukan Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 350,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: () async {
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                    });
-                  },
-                  child: Text('Login'),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 350,
-                height: 50,
-                child: OutlinedButton.icon(
-                  icon: Image.asset("images/gambar2.png"),
-                  // icon: Icon(Icons.facebook_sharp),
-                  onPressed: () {},
-                  label: Text('Sign in with Google'),
-                ),
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text('Dont have an account?'),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
-                  },
-                  child: Text(
-                    "Sign up",
-                  ),
-                ),
-              ]),
+              logoWidget("images/gambar1.png"),
             ],
           ),
         ),
       ),
     ));
+  }
+
+  Image logoWidget(String imageName) {
+    return Image.asset(
+      imageName,
+      fit: BoxFit.fitWidth,
+      width: 240,
+      height: 240,
+      color: Colors.white,
+    );
   }
 }
