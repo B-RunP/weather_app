@@ -38,7 +38,6 @@ class _SignInScreenState extends State<SignInScreen> {
       fit: BoxFit.fitWidth,
       width: 240,
       height: 240,
-      color: Colors.white,
     );
   }
 }
