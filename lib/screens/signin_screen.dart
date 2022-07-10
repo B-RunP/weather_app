@@ -32,7 +32,8 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 20),
               reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
               SizedBox(height: 20),
-              signInSignUpButton(context, true, () {})
+              signInSignUpButton(context, true, () {}),
+              signUpOption()
             ],
           ),
         ),
