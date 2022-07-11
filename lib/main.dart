@@ -4,6 +4,8 @@ import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
