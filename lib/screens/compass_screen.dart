@@ -7,13 +7,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double? heading = 0;
+  double heading = 0;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    FlutterCompass.events!.listen((event) {
+    FlutterCompass.events.listen((event) {
       setState(() {
         heading = event.heading;
       });
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "${heading!.ceil()}°",
+            "${heading.ceil()}°",
             style: TextStyle(
               color: Colors.white,
               fontSize: 26.0,
