@@ -1,27 +1,74 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/signin_screen.dart';
+import 'package:flutter_compass/flutter_compass.dart';
+import 'dart:math';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Stateful Clicker Counter',
-      theme: ThemeData(
-        // Application theme data, you can set the colors for the application as
-        // you want
-        primarySwatch: Colors.blue,
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  double? heading = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FlutterCompass.events!.listen((event) {
+      setState(() {
+        heading = event.heading;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade900,
+        centerTitle: true,
+        title: Text("Compass"),
       ),
-      home: const SignInScreen(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "${heading!.ceil()}°",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(18.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset("assets/cadrant.png"),
+                Transform.rotate(
+                  angle: ((heading ?? 0) * (pi / 180) * -1),
+                  child: Image.asset("assets/compass.png", scale: 1.1),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
