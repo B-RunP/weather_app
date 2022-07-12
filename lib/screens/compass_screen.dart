@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'dart:math';
 
-class HomeScreen extends StatefulWidget {
-  _HomeScreenState createState() => _HomeScreenState();
+class CompassScreen extends StatefulWidget {
+  _CompassScreenState createState() => _CompassScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CompassScreenState extends State<CompassScreen> {
   double heading = 0;
 
   @override
@@ -46,10 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Image.asset("assets/cadrant.png"),
+                Image.asset("images/cadrant.png"),
                 Transform.rotate(
                   angle: ((heading ?? 0) * (pi / 180) * -1),
-                  child: Image.asset("assets/compass.png", scale: 1.1),
+                  child: Image.asset("images/compass.png", scale: 1.1),
                 ),
               ],
             ),
