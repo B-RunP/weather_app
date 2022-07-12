@@ -3,15 +3,15 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/screens/home_screen.dart';
 import 'package:myapp/screens/signup_screen.dart';
-import 'package:hive/hive.dart';
+import 'package:myapp/reusable_widget/reusable_widget.dart';
 
 class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  TextEditingController _userEmailController = TextEditingController();
-  TextEditingController _userPasswordController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
 
   bool hidePass = true;
 
@@ -19,87 +19,42 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
       child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.2, 20, 0),
           child: Column(
             children: <Widget>[
-              Image.asset('images/gambar1.png', width: 240.0),
-              SizedBox(
-                height: 30,
-              ),
-              TextFormField(
-                  controller: _userEmailController,
-                  decoration: InputDecoration(
-                      labelText: "Username",
-                      prefixIcon: Icon(Icons.person_outline, size: 20),
-                      hintText: "Masukan Username",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ))),
-              SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: _userPasswordController,
-                obscureText: hidePass,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
-                  labelText: "Password",
-                  hintText: "Masukan Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 350,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: () async {
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                    });
-                  },
-                  child: Text('Login'),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 350,
-                height: 50,
-                child: OutlinedButton.icon(
-                  icon: Image.asset("images/gambar2.png"),
-                  // icon: Icon(Icons.facebook_sharp),
-                  onPressed: () {},
-                  label: Text('Sign in with Google'),
-                ),
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text('Dont have an account?'),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
-                  },
-                  child: Text(
-                    "Sign up",
-                  ),
-                ),
-              ]),
+              logoWidget("images/gambar1.png"),
+              SizedBox(height: 30),
+              reusableTextField("Enter Username", Icons.person_outline, false, _emailTextController),
+              SizedBox(height: 20),
+              reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
+              SizedBox(height: 20),
+              signInSignUpButton(context, true, () {}),
+              signUpOption()
             ],
           ),
         ),
       ),
     ));
+  }
+
+  Row signUpOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Don't have account?", style: TextStyle(color: Colors.black)),
+        GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+            },
+            child: const Text(
+              " Sign Up",
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            ))
+      ],
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:myapp/reusable_widget/reusable_widget.dart';
 import 'package:myapp/screens/signin_screen.dart';
 import 'package:myapp/screens/home_screen.dart';
 
@@ -20,90 +21,35 @@ class _SignupScreenState extends State<SignupScreen> {
         appBar: AppBar(
           title: Text('Sign Up'),
         ),
-        body: SingleChildScrollView(
-            child: Column(children: [
-          SizedBox(height: 20),
-          Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-          Text(
-            'Creat an account to Q alure to get all Leatures',
-            style: TextStyle(color: Colors.black.withOpacity(0.5)),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
-                controller: _userNameController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.person_outline, size: 20),
-                  // labelText: "Username",
-                  hintText: "Masukan Username",
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
-                controller: _userEmailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.mail_outline_rounded, size: 20),
-                  // labelText: "Username",
-                  hintText: "Masukan Email",
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: TextFormField(
-                controller: _userPasswordController,
-                obscureText: hidePass,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  prefixIcon: Icon(Icons.lock_open_outlined, size: 20),
-                  // labelText: "Username",
-                  hintText: "Masukan Password",
-                )),
-          ),
-          SizedBox(height: 20),
-          SizedBox(
-            width: 250,
-            height: 50,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              onPressed: () async {
-                try {
-                  FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text);
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
-                } on FirebaseAuthException catch (error) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.message.toString())));
-                }
-              },
-              child: Text('Create'),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Already have an account?'),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
-                },
-                child: Text(
-                  "Login here",
-                ),
-              ),
-            ],
-          ),
-        ])));
+        body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    child: Column(children: <Widget>[
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      reusableTextField("Enter Usernamer", Icons.person_outline, false, _userNameController),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      reusableTextField("Enter Email", Icons.person_outline, false, _userEmailController),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      reusableTextField("Enter Password", Icons.lock_outline, true, _userPasswordController),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      signInSignUpButton(context, false, () {
+                        FirebaseAuth.instance.createUserWithEmailAndPassword(email: _userEmailController.text, password: _userPasswordController.text).then((value) {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                        }).onError((error, stackTrace) {
+                          print("Error ${error.toString()}");
+                        });
+                      })
+                    ])))));
   }
 }

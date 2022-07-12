@@ -14,34 +14,32 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
-          child: Text('Home Breng', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          child: Text('WELCOME', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         ),
         SizedBox(height: 20),
         SizedBox(
-          width: 150,
-          height: 30,
+          width: 250,
+          height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              primary: Colors.lightBlue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
             onPressed: () {
-              // FirebaseAuth.instance.signOut().then((value) {
-              //   Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
-              // });
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
             },
             child: Text('Logout'),
           ),
         ),
         SizedBox(height: 20),
         SizedBox(
-          width: 150,
-          height: 30,
+          width: 250,
+          height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              primary: Colors.lightBlue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
