@@ -18,39 +18,20 @@ class HomeScreen extends StatelessWidget {
         ),
         SizedBox(height: 20),
         SizedBox(
-          width: 150,
+          width: 250,
           height: 30,
-          child: MaterialButton(
-            padding: EdgeInsets.all(8.0),
-            textColor: Colors.white,
-            splashColor: Colors.greenAccent,
-            elevation: 8.0,
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/weather.jpg'), fit: BoxFit.cover),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Cuaca"),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
               ),
             ),
-            // ),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
             },
+            child: Text('Logout'),
           ),
-          // ElevatedButton(
-          //   style: ElevatedButton.styleFrom(
-          //     primary: Colors.green,
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(30),
-          //     ),
-          //   ),
-          //   onPressed: () {
-          //     Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
-          //   },
-          //   child: Text('Logout'),
-          // ),
         ),
         SizedBox(height: 20),
         SizedBox(
