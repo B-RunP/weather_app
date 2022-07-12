@@ -16,30 +16,35 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.grey.shade900,
+              centerTitle: true,
+              title: Text("Weather"),
+            ),
             body: Center(
                 child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (_response != null)
-          Column(
-            children: [
-              Image.network(_response.iconUrl),
-              Text(
-                '${_response.tempInfo.temperature}°',
-                style: TextStyle(fontSize: 40),
-              ),
-              Text(_response.weatherInfo.description)
-            ],
-          ),
-        Padding(
-            padding: EdgeInsets.symmetric(vertical: 50),
-            child: SizedBox(
-              width: 150,
-              child: TextField(controller: _cityTextController, decoration: InputDecoration(labelText: 'City'), textAlign: TextAlign.center),
-            )),
-        ElevatedButton(onPressed: _search, child: Text('search'))
-      ],
-    ))));
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (_response != null)
+                  Column(
+                    children: [
+                      Image.network(_response.iconUrl),
+                      Text(
+                        '${_response.tempInfo.temperature}°',
+                        style: TextStyle(fontSize: 40),
+                      ),
+                      Text(_response.weatherInfo.description)
+                    ],
+                  ),
+                Padding(
+                    padding: EdgeInsets.symmetric(vertical: 50),
+                    child: SizedBox(
+                      width: 150,
+                      child: TextField(controller: _cityTextController, decoration: InputDecoration(labelText: 'City'), textAlign: TextAlign.center),
+                    )),
+                ElevatedButton(onPressed: _search, child: Text('search'))
+              ],
+            ))));
   }
 
   void _search() async {
