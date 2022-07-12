@@ -14,15 +14,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
-          child: Text('Home Breng', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          child: Text('WELCOME', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         ),
         SizedBox(height: 20),
         SizedBox(
           width: 250,
-          height: 30,
+          height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              primary: Colors.lightBlue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -35,11 +35,11 @@ class HomeScreen extends StatelessWidget {
         ),
         SizedBox(height: 20),
         SizedBox(
-          width: 150,
-          height: 30,
+          width: 250,
+          height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              primary: Colors.lightBlue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
