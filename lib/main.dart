@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // you want
         primarySwatch: Colors.blue,
       ),
-      home: CompassScreen(),
+      home: HomeScreen(),
     );
   }
 }
